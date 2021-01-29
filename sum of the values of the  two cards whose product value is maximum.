@@ -1,0 +1,65 @@
+/*A game company has designed an online lottery game, Bingo. 
+In this game, N number cards are displayed. Each card has a
+value on it. The value can be negative or positive. 
+The player must choose two cards. To win the game, the 
+product of the values of the two cards must be the maximum 
+value possible for any pair of cards in the display. The winning amount will
+be the sum of the two cards chosen by the player,
+
+Wote an algorithm to find the winning amount as the sum of the 
+values of the two cards whose produa value is
+maximum.*/
+
+
+
+/*Input
+The first line of the input consists of an Integer numCards 
+representing the number of cards (N). . The second line consists 
+of N space-separated integers - val, val. val representing the values on the cards.
+
+Output
+Print an integer representing the sum of the values of the 
+two cards whose product value is maximum.
+*/
+
+/*Example
+
+Input
+9 -3 8 -6 -7 8 10
+Output
+19
+*/
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n,prod1,prodTemp,sum=0,sumTemp;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    prodTemp=arr[0]*arr[1];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i;j<n;j++)  
+        {
+            if(arr[i]!=arr[j])
+            {
+                prod1=arr[i]*arr[j];
+                sum=arr[i]+arr[j];
+                if(prod1>=prodTemp)
+                {
+                    prodTemp=prod1;
+                    sumTemp=sum;
+                }
+            }
+        }
+        
+    }
+    cout<<sumTemp;
+    return 0;
+}
+
